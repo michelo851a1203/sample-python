@@ -1,0 +1,12 @@
+version: 1.0
+
+run:
+  runtime: python312
+  run:
+    - echo "\033[031m Installing demo here\033[0m"]"
+    - pip install --no-cache-dir -r requirements.txt
+
+  command: python main.py
+  networks:
+    port: 8080
+
