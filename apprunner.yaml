@@ -3,6 +3,8 @@ runtime: python3
 
 build:
   commands:
+    pre-build:
+      - echo "\033[031m prebuild happening...\033[0m"
     build:
       - pip install --no-cache-dir -r requirements.txt
 
