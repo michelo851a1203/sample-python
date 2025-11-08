@@ -10,5 +10,7 @@ COPY . /app/
 
 EXPOSE 8080
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+HEALTHCHECK --interval=10s --timeout=5s --start-period=10s --retries=3 \
+     CMD curl -f http://localhost:8080/ || exit 1
 
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080", "--log-level", "info"]

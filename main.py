@@ -1,7 +1,14 @@
+import sys
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 import uvicorn
 
-app = FastAPI(title="demo app runner", description="this is a demo to run app runner", version="1.0.0")
+@asynccontextmanager
+async def life_span(_: FastAPI):
+    print("Application start up ...", file=sys.stderr)
+    yield
+
+app = FastAPI(title="demo app runner", description="this is a demo to run app runner", version="1.0.0", life_span=life_span)
 
 @app.get("/")
 def root():
