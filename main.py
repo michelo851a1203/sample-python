@@ -1,7 +1,7 @@
 import sys
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-import uvicorn
+# import uvicorn
 
 @asynccontextmanager
 async def life_span(_: FastAPI):
@@ -14,9 +14,8 @@ app = FastAPI(title="demo app runner", description="this is a demo to run app ru
 def root():
     return { "message": "OK" }
 
-
-def main():
-    uvicorn.run(app, host="0.0.0.0", port=8080, proxy_headers=True)
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     uvicorn.run(app, host="0.0.0.0", port=8080, proxy_headers=True)
+#
+# if __name__ == "__main__":
+#     main()
