@@ -9,7 +9,7 @@ build:
 run:
   runtime-version: 3.12
   command: uvicorn main:app --host 0.0.0.0 --port 8080
-  networks:
+  network:
     port: 8080
     env: APP_RUNNER
 
