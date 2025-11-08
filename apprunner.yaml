@@ -1,9 +1,9 @@
 version: 1.0
-runtime: python3
+runtime: python3.11
 
 build:
   commands:
-    pre-build:
+    pre_build:
       - echo "\033[031m prebuild happening...\033[0m"
     build:
       - pip install --no-cache-dir -r requirements.txt
