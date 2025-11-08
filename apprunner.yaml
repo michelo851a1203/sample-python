@@ -1,13 +1,13 @@
 version: 1.0
 runtime: python3
 
-run:
-  runtime-version: 3.12.7
-  pre-run:
-    - echo "\033[031m Installing demo here\033[0m"]"
-    - pip install --no-cache-dir -r requirements.txt
+build:
+  commands:
+    build:
+      - pip install --no-cache-dir -r requirements.txt
 
-  command: python main.py
+run:
+  command: uvicorn main:app --host 0.0.0.0 --port 8080
   networks:
     port: 8080
 
