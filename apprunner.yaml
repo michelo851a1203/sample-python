@@ -3,12 +3,13 @@ runtime: python311
 
 build:
   commands:
-    pre_build:
+    pre-build:
       - echo "\033[031m prebuild happening...\033[0m"
     build:
       - pip install --no-cache-dir -r requirements.txt
 
 run:
+  runtime-version: 3.12.7
   command: uvicorn main:app --host 0.0.0.0 --port 8080
   network:
     port: 8080
